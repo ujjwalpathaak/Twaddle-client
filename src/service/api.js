@@ -11,7 +11,7 @@ export const addUser = async (data) => {
 };
 export const getUsers = async () => {
   try {
-    let response = await axios.get(`https://twaddle-server.herokuapp.comhttps://twaddle-server.herokuapp.com/users`);
+    let response = await axios.get(`https://twaddle-server.herokuapp.com/users`);
     // console.log(response.data)
     return response.data;
   } catch (error) {
@@ -20,7 +20,7 @@ export const getUsers = async () => {
 };
 export const setConversation = async (data) => {
   try {
-    await axios.post(`https://twaddle-server.herokuapp.comhttps://twaddle-server.herokuapp.com/conversation/add`, data);
+    await axios.post(`https://twaddle-server.herokuapp.com/add`, data);
   } catch (err) {
     console.log(err.message);
   }
