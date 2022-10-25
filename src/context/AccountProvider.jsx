@@ -2,7 +2,7 @@ import { createContext, useState, useRef, useEffect } from "react";
 import {io} from "socket.io-client"
 
 export const AccountContext = createContext(null);
-const Socket_Url = process.env.REACT_APP_SOCKET_URL
+const Socket_Url = "https://twaddle-socket.herokuapp.com" || "ws://localhost:9000"
 
 const AccountProvider = ({ children }) => {
   const [account, setAccount] = useState();
@@ -12,7 +12,7 @@ const AccountProvider = ({ children }) => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("https://twaddle-socket.herokuapp.com/")
+    socket.current = io(Socket_Url)
   }, [])
   
   
