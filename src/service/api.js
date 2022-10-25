@@ -1,7 +1,7 @@
 import axios from "axios";
-const Backend_Url = process.env.REACT_APP_BACKEND_URL;
+// const Backend_Url = process.env.REACT_APP_BACKEND_URL;
 
-const url = REACT_APP_BACKEND_URL_LOCAL|| REACT_APP_BACKEND_URL;
+const url = "http://localhost:5000" || "https://twaddle-server.herokuapp.com";
 export const addUser = async (data) => {
   try {
     await axios.post(`${url}/add`, data);
