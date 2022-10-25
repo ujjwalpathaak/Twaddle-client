@@ -12,7 +12,7 @@ const AccountProvider = ({ children }) => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io(Socket_Url)
+    socket.current = io("https://twaddle-socket.herokuapp.com/")
   }, [])
   
   
