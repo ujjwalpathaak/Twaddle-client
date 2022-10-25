@@ -1,0 +1,69 @@
+#left-chat-type {
+    border: none;
+    border-radius: 8px;
+    width: 95%;
+    background-color: #f0f2f5;
+    height: 32px;
+    outline: none;
+}
+input[type=text]{
+  padding: 0px 0px 0px 40px;
+  box-sizing: border-box;
+}
+#left-search {
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  height: 50px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.5px solid #e9edef;
+}
+#left-search2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+    justify-content: center;
+}
+.search-btn {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+.search2-btn {
+  width: 30px;
+  position: absolute;
+  height: 30px;
+  margin: 0;
+  left: 15px;
+}
+.search-btn img {
+  width: 18px;
+  height: 18px;
+}
+form{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  position: fixed;
+
+  min-width: 240px;
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 800px){
+  #left-chat-type{
+    border: none;
+    border-radius: 8px;
+    width: 95%;
+    background-color: #f0f2f5;
+    height: 32px;
+    outline: none;
+    font-size: 10px;
+    padding: 0px 0px 0px 10px;
+  }
+}

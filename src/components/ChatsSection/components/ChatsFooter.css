@@ -1,0 +1,91 @@
+#ChatsFooter {
+  /* background-color: rgb(240,242,245); */
+  height: 100%;
+  display: flex;    width: 100%;    max-width: 1020px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Picker{
+  width: 100px;
+  height: 100px;
+}
+#chat-type {
+  border: rgb(143, 142, 142) 1px solid;
+  border-radius: 10px;
+  width: 50vw;
+  border: none;outline: none;
+  height: 45px;
+  margin: 5px 0px 0px 0px;
+}
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+}
+button {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;cursor: pointer;
+  justify-content: center;
+  background-color: transparent;
+  border: solid 0px;
+}
+#ChatsFooter div:nth-child(1){
+  margin: 0px 0px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+#ChatsFooter div:nth-child(2){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+#ChatsFooter div:nth-child(3){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.footer-icon{
+  height: 35px;
+  width: 35px;
+}
+.footer-icon img{
+  height: 23px;
+  width: 23px;
+}
+#file-dialog{
+  width: 200px;
+  background-color: #F0F2F5;
+  height: 59px;
+  display: flex;
+  position: absolute;
+
+  border-radius: 10px; box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  border-bottom-left-radius: 0px;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+@media only screen and (max-width: 800px){
+  .footer-icon{
+    height: 35px;
+    width: 35px;
+    display: none;
+  }
+  #chat-type {
+    border: rgb(143, 142, 142) 1px solid;
+    border-radius: 10px;
+    width: 50vw;
+    border: none;outline: none;
+    height: 45px;
+    margin: 5px 0px 0px 0px;
+  }
+  
+}

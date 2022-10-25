@@ -1,0 +1,21 @@
+#rightChats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 730px;
+  justify-content: center;
+  max-width: 866px;
+  width: 100%;
+  height: 85vh;
+  max-height: 665px;
+}
+
+#rightChats-img {
+  width: 45%;
+}
+#rightChats-h2 {
+  margin: 0;
+  color: white;
+}
+
+

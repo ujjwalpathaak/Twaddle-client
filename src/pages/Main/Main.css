@@ -1,0 +1,164 @@
+#background {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-repeat: no-repeat;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../../assests/_images/Moon.png');
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 85px 88%;
+  width: 85vw;
+  max-width: 1300px;
+}
+
+#twaddle-header-logo {
+  min-width: 405px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#twaddle-header1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  background-color: #F5F7FB;
+  width: 83vw;
+  max-width: 1276px;
+  margin: 10px 10px 0px 10px;
+}
+#twaddle-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#twaddle-header-logo img {
+  width: 200px;
+}
+#twaddle-main {
+  display: flex;
+  justify-content: space-between;
+  max-height: 665px;
+}
+#left-msg-msg {
+  margin: 5px 0px 0px 10px;
+  color: white;
+}
+#twaddle-righside {
+  min-width: 240px;
+  margin: 10px;   background-color: #F5F7FB;
+  max-width: 400px;
+  border-radius: 10px;
+   max-height: 665px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+#twaddle-leftside {
+  margin: 10px 10px 10px 0px;
+  max-height: 665px;    background-color: #F5F7FB;
+  width: 59.5vw; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile View */
+@media only screen and (max-width: 1000px) {
+  #background {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    display: flex;
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../assests/_images/Moon.png');
+  }
+  #app {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 12% 88%;
+    width: 100vw;
+  }
+  #twaddle-header-logo {
+    min-width: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  #twaddle-header1 {
+    display: flex;   
+    justify-content: center;
+    align-content: center;
+    border-radius: 0px;
+    background-color: #F0F0F0;
+    width: 100vw;
+    max-width: 1276px;
+    flex-direction: column;
+    align-items: center; border-bottom: #383a3f34 solid 1px;
+    margin: 0;
+  }
+  #twaddle-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #twaddle-header-logo img {
+    width: 110px;
+  }
+  #twaddle-main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    max-height: 101vh;
+  }
+  #left-msg-msg {
+    margin: 5px 0px 0px 10px;
+    color: white;
+  }
+  #twaddle-righside {
+    min-width: 130px;
+    width: 100px;
+    margin: 0%;
+    border-radius: 0%;
+background-color: #F5F7FB;
+    max-width: 400px;
+    /* border-radius: 10px; */
+    height: 100%;
+    overflow: auto; max-height: 101vh;
+    overflow-x: hidden;
+  }
+  #twaddle-leftside {
+    height: 100%;
+    margin: 0%;
+    border-radius: 0%;
+      background-color: #F5F7FB; max-height: 101vh;
+      width: 65vw;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}

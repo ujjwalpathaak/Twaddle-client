@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+body {
+  overflow-x: hidden;
+}
+#login-page {
+  display: flex;
+    height: 100vh;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assests/_images/Moon.png');
+}
+#login-page-main{
+  display: grid;
+  grid-template-rows: 20% 60% 20%;
+}
+#login-page div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+#image-login-logo {
+  width: 350px;
+}
+#image-login-main {
+  margin: 0px 0px 0px 0px;
+  width: 750px;
+}
+#sign-login-section {
+  margin: 0px 0px 0px 0px;
+  margin: 10px;
+}
+@media only screen and (max-width: 750px) {
+  #login-page {
+    display: flex;
+      height: 100vh;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../assests/_images/Moon.png');
+  }
+  #login-page-main{
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+  }
+  #login-page div {
+    display: flex;
+    flex-direction: column;    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+  #image-login-main {
+    width: 99vw;
+  }
+}

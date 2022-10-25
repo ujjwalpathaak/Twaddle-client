@@ -1,0 +1,6 @@
+#karja-kaam{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 63px 79% 11%;
+
+}
