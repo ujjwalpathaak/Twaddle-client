@@ -23,7 +23,9 @@ const ChatsFooter = ({ sendText, setValue, value, setFile, file, setImage }) => 
     };
     getImage();
   }, [file]);
-
+  const delay = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
   const onFileChange = async (e) => {
     await delay(5000);
     setValue(e.target.files[0].name);
