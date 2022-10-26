@@ -17,14 +17,15 @@ const ChatsFooter = ({ sendText, setValue, value, setFile, file, setImage }) => 
         data.append("file", file);
 
         const response = await uploadFile(data);
-        // console.log(data)
+
         setImage(response.data);
       }
     };
     getImage();
   }, [file]);
 
-  const onFileChange = (e) => {
+  const onFileChange = async (e) => {
+    await delay(5000);
     setValue(e.target.files[0].name);
     setFile(e.target.files[0]);
   };
