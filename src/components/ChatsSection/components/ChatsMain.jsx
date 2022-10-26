@@ -275,7 +275,7 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
       }
       setMessages(data);
     };
-    conversation._id && getMsg();
+    getMsg();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conversation?._id, person._id, flagMsg]);
 
