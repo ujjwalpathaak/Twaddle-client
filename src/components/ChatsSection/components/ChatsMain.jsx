@@ -268,16 +268,16 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
 
   useEffect(() => {
     const getMsg = async () => {
-      let data = await getMessage(conversation._id);
+      let data = await getMessage(conversation?._id);
       if (data === undefined) {
         console.log("saved from crash");
         return;
       }
       setMessages(data);
     };
-    person._id && conversation._id && getMsg();
+    conversation._id && getMsg();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [person._id, conversation._id, flagMsg]);
+  }, [conversation?._id, person._id, flagMsg]);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ transition: "smooth" });
