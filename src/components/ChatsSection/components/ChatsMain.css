@@ -129,8 +129,7 @@
   margin: -5px 0px 0px -15px;
   border-top: 12px solid #FFFFFF;
 }.to-hide {
-  background-color: transparent;
-  color: transparent;
+  visibility: hidden;
 }
 
 

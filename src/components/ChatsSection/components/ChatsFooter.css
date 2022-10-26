@@ -77,12 +77,12 @@ button {
   .footer-icon{
     height: 35px;
     width: 35px;
-    display: none;
+    /* display: none; */
   }
   #chat-type {
     border: rgb(143, 142, 142) 1px solid;
     border-radius: 10px;
-    width: 50vw;
+    width: 40vw;
     border: none;outline: none;
     height: 45px;
     margin: 5px 0px 0px 0px;

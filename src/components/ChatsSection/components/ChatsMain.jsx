@@ -54,7 +54,14 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
         {message?.text?.includes(".pdf") ? (
           <div style={{ display: "flex" }}>
             <img
-              style={{ display: "none", cursor: "pointer", width: "80px" }}
+              style={{
+                visibility: "hidden",
+                cursor: "pointer",
+                width: "5vw",
+                minHeight: "60px",
+                minWidth: "60px",
+                height: "5vw",
+              }}
               onClick={(e) => downloadMedia(e, message.text)}
               src={require("../../../assests/_images/file.png")}
               alt="pdf-icon"
@@ -74,9 +81,10 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
           <img
             onClick={(e) => downloadMedia(e, message.text)}
             style={{
-              display: "none",
+              border: "solid transparent 1px",
+              visibility: "hidden",
               backgroundColor: "white",
-              width: 300,
+              width: "20vw",
               height: "100%",
               objectFit: "cover",
             }}
@@ -96,7 +104,13 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
         {message?.text?.includes(".pdf") ? (
           <div style={{ display: "flex" }}>
             <img
-              style={{ cursor: "pointer", width: "80px" }}
+              style={{
+                cursor: "pointer",
+                width: "5vw",
+                minHeight: "60px",
+                minWidth: "60px",
+                height: "5vw",
+              }}
               onClick={(e) => downloadMedia(e, message.text)}
               src={require("../../../assests/_images/file.png")}
               alt="pdf-icon"
@@ -117,10 +131,10 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
           <img
             onClick={(e) => downloadMedia(e, message.text)}
             style={{
-              border: "solid black 1px",
+              border: "solid transparent 1px",
               padding: "5px",
               backgroundColor: "white",
-              width: 300,
+              width: "20vw",
               height: "100%",
               objectFit: "cover",
             }}
@@ -128,6 +142,9 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
             alt={message.text}
           />
         )}
+        <p className="to-hide" id="other-time-of-msg2">
+          {formatDate(message.createdAt)}
+        </p>
       </div>
     );
   };
@@ -137,7 +154,13 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
         {message?.text?.includes(".pdf") ? (
           <div style={{ display: "flex" }}>
             <img
-              style={{ cursor: "pointer", width: "80px" }}
+              style={{
+                cursor: "pointer",
+                width: "5vw",
+                minHeight: "60px",
+                minWidth: "60px",
+                height: "5vw",
+              }}
               onClick={(e) => downloadMedia(e, message.text)}
               src={require("../../../assests/_images/file.png")}
               alt="pdf-icon"
@@ -161,7 +184,7 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
               border: "solid black 1px",
               padding: "5px",
               backgroundColor: "white",
-              width: 300,
+              width: "20vw",
               height: "100%",
               objectFit: "cover",
             }}
@@ -169,6 +192,9 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
             alt={message.text}
           />
         )}
+        <p className="to-hide" id="other-time-of-msg2">
+          {formatDate(message.createdAt)}
+        </p>
       </div>
     );
   };
@@ -178,7 +204,14 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
         {message?.text?.includes(".pdf") ? (
           <div style={{ display: "flex" }}>
             <img
-              style={{ display: "none", cursor: "pointer", width: "80px" }}
+              style={{
+                visibility: "hidden",
+                cursor: "pointer",
+                width: "5vw",
+                minHeight: "60px",
+                minWidth: "60px",
+                height: "5vw",
+              }}
               onClick={(e) => downloadMedia(e, message.text)}
               src={require("../../../assests/_images/file.png")}
               alt="pdf-icon"
@@ -198,9 +231,9 @@ const ChatsMain = ({ person, conversation, flagMsg }) => {
           <img
             onClick={(e) => downloadMedia(e, message.text)}
             style={{
-              display: "none",
+              visibility: "hidden",
               backgroundColor: "white",
-              width: 300,
+              width: "20vw",
               height: "100%",
               objectFit: "cover",
             }}
