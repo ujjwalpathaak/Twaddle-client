@@ -25,9 +25,10 @@ const Chats = () => {
     });
   }, [account]);
 
-  return Users.map(
-    (user) => user?.sub !== account.sub && <Conversation user={user} />
-  );
+  // return Users.map(
+  //   (user) => user?.sub !== account.sub && <Conversation user={user} />
+  // );
+  
 };
 
 export default Chats;
