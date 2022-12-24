@@ -7,7 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 const App = () => {
   const { account } = useContext(AccountContext);
   return (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_OAUTH_CLIENTID}>
+    <GoogleOAuthProvider clientId="712553503886-u8r4ap39l0r2j7kp2n3m7j4vp9c9nad1.apps.googleusercontent.com">
       {account ? <Main /> : <Login />}
     </GoogleOAuthProvider>
   );

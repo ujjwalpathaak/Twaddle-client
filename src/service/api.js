@@ -1,6 +1,6 @@
 import axios from "axios";
-
-const url = "http://localhost:5000" || "http://localhost:5000";
+// "http://localhost:5000"
+// "http://localhost:5000"
 export const addUser = async (data) => {
   try {
     await axios.post(`http://localhost:5000/add`, data);
@@ -11,7 +11,8 @@ export const addUser = async (data) => {
 export const getUsers = async () => {
   try {
     let response = await axios.get(`http://localhost:5000/users`);
-    console.log(response)
+    console.log("reached - get users")
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.log("Error while calling getUsers API ", error);

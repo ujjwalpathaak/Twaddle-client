@@ -8,6 +8,7 @@ import { useContext } from "react";
 const Login = () => {
   const { setAccount } = useContext(AccountContext);
 
+  
   return (
     <div id="login-page">
       <div id="login-page-main">
@@ -27,7 +28,7 @@ const Login = () => {
         </div>
         <div id="sign-login-section">
           <GoogleLogin
-            clientId=""
+            clientId="712553503886-u8r4ap39l0r2j7kp2n3m7j4vp9c9nad1.apps.googleusercontent.com"
             onSuccess={async (res) => {
               const decoded = jwt_decode(res.credential);
               setAccount(decoded);

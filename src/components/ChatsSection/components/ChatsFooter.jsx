@@ -1,6 +1,6 @@
 import React from "react";
 // import Picker from "emoji-picker-react";
-import InputEmoji from "react-input-emoji";
+// import InputEmoji from "react-input-emoji";
 import "../components/ChatsFooter.css";
 import { useEffect, useContext, useState } from "react";
 import { uploadFile } from "../../../service/api";

@@ -6,13 +6,12 @@ import { AccountContext } from "../../context/AccountProvider";
 
 import Conversation from "../Conversation/Conversation";
 const Chats = () => {
-  const { socket, account, setActiveUsers, setFlagMsg } =
-    useContext(AccountContext);
+  const { socket, account, setActiveUsers, setFlagMsg } = useContext(AccountContext);
   const [Users, setUsers] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       let data = await getUsers();
+      // console.log(data)
       setUsers(data);
     };
     fetchData();
@@ -25,9 +24,9 @@ const Chats = () => {
     });
   }, [account]);
 
-  // return Users.map(
-  //   (user) => user?.sub !== account.sub && <Conversation user={user} />
-  // );
+  return Users.map(
+    (user) => user?.sub !== account.sub && <Conversation user={user} />
+  );
   
 };
 
