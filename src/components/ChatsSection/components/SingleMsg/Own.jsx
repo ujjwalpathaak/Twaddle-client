@@ -22,11 +22,6 @@ const SingleMsg = ({message}) => {
         }
         
         </div>
-      
-        // account.sub === message.senderId ?
-        // <div id="own-section" className='own-msg'>{message.text}</div> : <div id="other-section" className='other-msg'>{message.text}</div>
-
-
   )
 };
 

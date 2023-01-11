@@ -1,18 +1,17 @@
 import axios from "axios";
-// "http://localhost:50f00/"
-// "http://localhost:50f00/"
+const DEV_SERVER = process.env.REACT_APP_DEV_SERVER;
+const PROD_SERVER = process.env.REACT_APP_PROD_SERVER;
+
 export const addUser = async (data) => {
   try {
-    await axios.post(`https://twaddle-server.onrender.com/add`, data);
+    await axios.post(`${PROD_SERVER}/add`, data);
   } catch (err) {
     console.log(err.message);
   }
 };
 export const getUsers = async () => {
   try {
-    let response = await axios.get(`https://twaddle-server.onrender.com/users`);
-    console.log("reached - get users")
-    console.log(response.data)
+    let response = await axios.get(`${PROD_SERVER}/users`);
     return response.data;
   } catch (error) {
     console.log("Error while calling getUsers API ", error);
@@ -20,14 +19,14 @@ export const getUsers = async () => {
 };
 export const setConversation = async (data) => {
   try {
-    await axios.post(`https://twaddle-server.onrender.com/conversation/add`, data);
+    await axios.post(`${PROD_SERVER}/conversation/add`, data);
   } catch (err) {
     console.log(err.message);
   }
 };
 export const getConversation = async (data) => {
   try {
-    let response = await axios.post(`https://twaddle-server.onrender.com/conversation/get`, data);
+    let response = await axios.post(`${PROD_SERVER}/conversation/get`, data);
     return response.data;
   } catch (err) {
     console.log(err.message);
@@ -36,8 +35,7 @@ export const getConversation = async (data) => {
 
 export const newMessage = async (data) => {
   try {
-    let response = await axios.post(`https://twaddle-server.onrender.com/message/add`, data);
-    console.log(response)
+    let response = await axios.post(`${PROD_SERVER}/message/add`, data);
     return response.data;
   } catch (err) {
     console.log(err.message);
@@ -45,7 +43,7 @@ export const newMessage = async (data) => {
 };
 export const getMessage = async (id) => {
   try {
-    let response = await axios.get(`https://twaddle-server.onrender.com/message/get/${id}`);
+    let response = await axios.get(`${PROD_SERVER}/message/get/${id}`);
     return response.data;
   } catch (err) {
     console.log(err.message);
@@ -53,8 +51,10 @@ export const getMessage = async (id) => {
 };
 export const uploadFile = async (data) => {
   try {
-      return await axios.post(`https://twaddle-server.onrender.com/file/upload`, data);
+    let response = await axios.post(`${PROD_SERVER}/file/upload`, data);
+    console.log(response)
+    return response.data;
   } catch (error) {
-      console.log('Error while calling file upload API ', error);
+    console.log("Error while calling file upload API ", error);
   }
-}
+};

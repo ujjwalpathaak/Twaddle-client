@@ -1,23 +1,29 @@
 import React, { useContext, useState, useEffect } from "react";
+
 import ChatsMain from "./components/ChatsMain";
 import ChatsFooter from "./components/ChatsFooter";
 import ChatsHeader from "./components/ChatsHeader";
 import { AccountContext } from "../../context/AccountProvider";
+import { SocketContext } from "../../context/SocketProvider";
 import { getConversation, newMessage, getMessage } from "../../service/api";
-import "./ChatsSection.css"
+
+import "./ChatsSection.css";
+
 const ChatsSection = () => {
-  const { account, socket, setFlagMsg, flagMsg } = useContext(AccountContext);
-  const [messages, setMessages] = useState([]);
-  const [image, setImage] = useState('');
-  const [file, setFile] = useState('');
-  const { person } = useContext(AccountContext);
+  const { person, account, setFlagMsg, flagMsg } = useContext(AccountContext);
+  const { socket } = useContext(SocketContext);
   const [conversation, setConversation] = useState({});
+  const [file, setFile] = useState("");
   const [value, setValue] = useState("");
+  const [image, setImage] = useState("");
 
   const sendText = async (e) => {
+    // identifies which key
     const code = e.which;
+
     if (code === 13 && value) {
       let message = {};
+      // normal
       if (!file) {
         message = {
           senderId: account.sub,
@@ -26,7 +32,9 @@ const ChatsSection = () => {
           text: value,
           type: "text",
         };
-      } else {
+      }
+      // media
+      else {
         message = {
           senderId: account.sub,
           receiverId: person.sub,
@@ -35,6 +43,7 @@ const ChatsSection = () => {
           type: "file",
         };
       }
+
       socket.current.emit("sendMessage", message);
       await newMessage(message);
       setValue("");
@@ -50,19 +59,17 @@ const ChatsSection = () => {
         senderId: account.sub,
         receiverId: person.sub,
       });
+
       setConversation(data);
     };
     getConversationDetails();
+    // updates for each new person clikced
   }, [person.sub]);
 
   return (
     <div id="karja-kaam">
       <ChatsHeader person={person} />
-      <ChatsMain
-        person={person}
-        conversation={conversation}
-        flagMsg={flagMsg}
-      />
+      <ChatsMain conversation={conversation} flagMsg={flagMsg} />
       <ChatsFooter
         sendText={sendText}
         setValue={setValue}

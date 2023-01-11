@@ -1,33 +1,43 @@
-import React from "react";
-import { useContext } from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+
 import { getUsers } from "../../service/api";
 import { AccountContext } from "../../context/AccountProvider";
-
+import { SocketContext } from "../../context/SocketProvider";
 import Conversation from "../Conversation/Conversation";
+
 const Chats = () => {
-  const { socket, account, setActiveUsers, setFlagMsg } = useContext(AccountContext);
+  const { account, setActiveUsers, setFlagMsg } = useContext(AccountContext);
+  const { socket } = useContext(SocketContext);
+
+  // all users
   const [Users, setUsers] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      let data = await getUsers();
-      // console.log(data)
-      setUsers(data);
+      let users = await getUsers();
+      setUsers(users);
     };
+
     fetchData();
   }, [setFlagMsg]);
 
   useEffect(() => {
+    // to use socket... extract it from useContext
     socket.current.emit("addUsers", account);
     socket.current.on("getUsers", (users) => {
       setActiveUsers(users);
     });
-  }, [account]);
+  }, []);
 
   return Users.map(
-    (user) => user?.sub !== account.sub && <Conversation user={user} />
+    // for each user is current user matches the user in array dont display it.
+    (user) =>
+      user?.sub !== account.sub && (
+        <div key={user.sub}>
+          <Conversation user={user} />
+        </div>
+      )
   );
-  
 };
 
 export default Chats;

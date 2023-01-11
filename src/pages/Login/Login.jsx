@@ -1,14 +1,18 @@
 import React from "react";
-import "./Login.css";
-import { AccountContext } from "../../context/AccountProvider";
-import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { GoogleLogin } from "@react-oauth/google";
+
+import { AccountContext } from "../../context/AccountProvider";
 import { addUser } from "../../service/api";
 import { useContext } from "react";
+
+import "./Login.css";
+
 const Login = () => {
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
+
   const { setAccount } = useContext(AccountContext);
 
-  
   return (
     <div id="login-page">
       <div id="login-page-main">
@@ -16,20 +20,21 @@ const Login = () => {
           <img
             id="image-login-logo"
             src={require("../../assests/_images/twaddle_logo.png")}
-            alt=""
+            alt="temp"
           />
         </div>
         <div id="image-login-section">
           <img
             id="image-login-main"
             src={require("../../assests/_images/login-photo.png")}
-            alt=""
+            alt="temp"
           />
         </div>
         <div id="sign-login-section">
           <GoogleLogin
-            clientId="712553503886-u8r4ap39l0r2j7kp2n3m7j4vp9c9nad1.apps.googleusercontent.com"
+            clientId={clientId}
             onSuccess={async (res) => {
+              // decodes the data gotten in form of JWT Token
               const decoded = jwt_decode(res.credential);
               setAccount(decoded);
               addUser(decoded);

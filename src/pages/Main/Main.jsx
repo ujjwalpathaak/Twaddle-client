@@ -1,9 +1,13 @@
 import React from "react";
+
 import Chats from "../../components/Chats/Chats";
 import Header from "../../components/Header/Header";
 import RightSide from "../../components/RightSide/RightSide";
+import ActiveUsers from "../../components/Search/ActiveUsers";
 import Search from "../../components/Search/Search";
+
 import "./Main.css";
+
 const Main = () => {
   return (
     <div id="background">
@@ -19,6 +23,7 @@ const Main = () => {
         <div id="twaddle-main">
           <div id="twaddle-righside">
             <Search />
+            <ActiveUsers />
             <Chats />
           </div>
           <div id="twaddle-leftside">

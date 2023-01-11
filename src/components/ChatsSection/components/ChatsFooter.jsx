@@ -1,14 +1,17 @@
-import React from "react";
-// import Picker from "emoji-picker-react";
-// import InputEmoji from "react-input-emoji";
+import React, { useEffect, useContext, useState } from "react";
+
 import "../components/ChatsFooter.css";
-import { useEffect, useContext, useState } from "react";
 import { uploadFile } from "../../../service/api";
-const ChatsFooter = ({ sendText, setValue, value, setFile, file, setImage }) => {
-  const [show, setShow] = useState(false);
 
-  const [text, setText] = useState("");
-
+const ChatsFooter = ({
+  sendText,
+  setValue,
+  value,
+  setFile,
+  file,
+  setImage,
+}) => {
+  
   useEffect(() => {
     const getImage = async () => {
       if (file) {
@@ -23,9 +26,9 @@ const ChatsFooter = ({ sendText, setValue, value, setFile, file, setImage }) => 
     };
     getImage();
   }, [file]);
-  const delay = ms => new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   const onFileChange = async (e) => {
     await delay(5000);
     setValue(e.target.files[0].name);
@@ -50,7 +53,6 @@ const ChatsFooter = ({ sendText, setValue, value, setFile, file, setImage }) => 
         onChange={(e) => onFileChange(e)}
         id="file-input"
       />
-
       <input
         id="chat-type"
         type="text"

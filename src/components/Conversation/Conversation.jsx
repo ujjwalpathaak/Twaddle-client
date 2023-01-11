@@ -1,48 +1,51 @@
-import React from "react";
-import "./Conversation.css";
+import React, { useContext, useEffect, useState } from "react";
+
 import { setConversation, getConversation } from "../../service/api";
-import { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../context/AccountProvider";
+import { formateDate } from "../../utils/formatDate";
+
+import "./Conversation.css";
+
+// used to set user to talk to
 const Conversation = ({ user }) => {
-  const [msg, setMsg] = useState({})
-  const { setPerson, account, setFlagMsg, flagMsg } = useContext(AccountContext);
+  // latest msg and it's time
+  const [msg, setMsg] = useState();
+  const [time, setTime] = useState();
+
+  const { setPerson, account, flagMsg } = useContext(AccountContext);
+
+  // sets person to user clicked on
   const getUser = async () => {
     setPerson(user);
     await setConversation({ senderId: account.sub, receiverId: user.sub });
   };
-  const formatDate = (date) => {
-    const hours = new Date(date).getHours();
-    const minutes = new Date(date).getMinutes();
 
-   
-    return `${hours < 10 ? "0" + hours: hours }:${
-      minutes < 10 ? "0" + minutes  : minutes }`;
-  };
+  // used to show latest msg on left.. flagMsg pr it updates each time a new msg is sent
   useEffect(() => {
     const getConvDetails = async () => {
-      const data = await getConversation({senderId: account.sub, receiverId: user.sub })
-      setMsg({text: data?.message, timestam: data?.updatedAt})
-    }
-    getConvDetails()
-  }, [flagMsg])
+      const data = await getConversation({
+        senderId: account.sub,
+        receiverId: user.sub,
+      });
 
-  
+      setMsg(data.message);
+      setTime(data.updatedAt);
+    };
+
+    getConvDetails();
+  }, [flagMsg]);
+
   return (
     <div id="single-conversation" onClick={() => getUser()}>
       <div>
-
-      <img id="conversation-photo" src={user.picture} alt="dp" />
+        <img id="conversation-photo" src={user.picture} alt="dp" />
       </div>
       <div id="single-sonversation-details">
-      <h4 id="conversation-name">{user.name}</h4>
-<div id="single-sonversation-details-2">
-
-      <p>{msg?.text?.includes('localhost') ? 'media' : msg.text}</p>
-      {
-        msg?.text &&
-        <p>{formatDate(msg?.timestam)}</p>
-      }
-      </div>
+        <h4 id="conversation-name">{user.name}</h4>
+        <div id="single-sonversation-details-2">
+          <p>{msg}</p>
+          {msg && <p>{formateDate(time)}</p>}
+        </div>
       </div>
     </div>
   );

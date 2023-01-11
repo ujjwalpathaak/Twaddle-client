@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { AccountContext } from "../../context/AccountProvider";
+
 import "./Header.css";
 
-import { useContext, useState } from "react";
-import { AccountContext } from "../../context/AccountProvider";
 const Header = () => {
-  const [show, setShow] = useState(false);
   const { account } = useContext(AccountContext);
+
   return (
     <div id="header">
       <img
